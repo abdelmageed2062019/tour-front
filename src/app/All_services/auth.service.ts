@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = 'https://yarotravel.com/api';
   private currentUserSubject = new BehaviorSubject<any>(
     JSON.parse(localStorage.getItem('currentUser') || '{}')
   );
