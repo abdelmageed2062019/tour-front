@@ -10,8 +10,15 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./card-descrip.component.css']
 })
 export class CardDescripComponent {
+
   @Input() prices: any;
+  @Input() availability: string = '';
   @Input() city: string = '';
+  @Input() note: string = '';
+  @Input() fullDay: string = '';
+  @Input() country: string = '';
+  @Input() pickUpAndDropOff: string = '';
+  @Input() details: string = '';
   @Input() title: string = '';
   @Input() descriptions: string = '';
   @Input() duration: string = '';

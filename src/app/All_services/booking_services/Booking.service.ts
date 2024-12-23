@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
      providedIn: 'root',
 })
 export class BookingService {
-     private apiUrl = 'https://yarotravel.com/api/bookings'; // Adjust the URL based on your backend
+     private apiUrl = 'http://localhost:5000/api/bookings';
 
      constructor(private http: HttpClient) { }
 

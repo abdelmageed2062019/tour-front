@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TourService {
-  private apiUrl = 'https://yarotravel.com/api/tours';
+  private apiUrl = 'http://localhost:5000/api/tours';
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service';
      providedIn: 'root',
 })
 export class ReviewService {
-     private apiUrl = 'https://yarotravel.com/api/reviews';
+     private apiUrl = 'http://localhost:5000/api/reviews';
 
      constructor(private http: HttpClient, private authService: AuthService) { }
 

@@ -14,6 +14,9 @@ import { BookingComponent } from './pages/booking/booking.component';
 
 // Import your auth guard
 import { AuthGuard } from './All_services/guards/auth.guard';
+import { VipDescribComponent } from './pages/vip-describ/vip-describ.component';
+import { BookingVipComponent } from './pages/booking-vip/booking-vip.component';
+import { NileDescribComponent } from './pages/nile-describ/nile-describ.component';
 
 export const routes: Routes = [
      { path: 'login', component: LoginComponent },
@@ -40,6 +43,23 @@ export const routes: Routes = [
           component: VipComponent,
      },
      {
+          path: 'vip/details',
+          component: VipDescribComponent,
+     },
+     {
+          path: 'vip/booking-vip/:title/:price',
+          component: BookingVipComponent,
+     },
+     {
+          path: 'nile',
+          component: NileDescribComponent,
+     },
+
+     {
+          path: 'nile/booking-nile/:title/:price',
+          component: BookingVipComponent,
+     },
+     {
           path: 'cairo',
           component: CairoComponent,
      },
@@ -48,6 +68,7 @@ export const routes: Routes = [
           component: BookingComponent,
           canActivate: [AuthGuard]
      },
+
      // Default route to Home
      { path: '', redirectTo: '/home', pathMatch: 'full' },
      // Wildcard route to Home if no route is matched

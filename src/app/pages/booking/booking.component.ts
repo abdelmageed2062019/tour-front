@@ -5,7 +5,6 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { BookingService } from '../../All_services/booking_services/Booking.service';
 import { TourService } from '../../All_services/tour_services/tour.service';
-
 @Component({
   selector: 'app-booking',
   standalone: true,
@@ -111,24 +110,35 @@ export class BookingComponent implements OnInit {
     if (this.bookingForm.valid) {
       const bookingData = {
         ...this.bookingForm.value,
-        tourId: this.tourId,
+        tourName: this.tourDetails.title,
         amount: this.totalPrice,
         userId: JSON.parse(localStorage.getItem('currentUser') || '{}').user?.id,
       };
+
       this.bookingService.createBooking(bookingData).subscribe({
-        next: (response) => {
+        next: (response: any) => {
           console.log('Booking added successfully:', response);
-          alert('Booking added successfully.');
+
+          const publicKey = 'egy_pk_test_wW7qTgkaesFZ15XLUL0Mdr1lSXO590fR'; // Replace with your actual public key
+          const clientSecret = response.client_secret; // Ensure this comes from your backend response
+
+          // Build the Paymob checkout URL
+          const checkoutUrl = `https://accept.paymob.com/unifiedcheckout/?publicKey=${publicKey}&clientSecret=${clientSecret}`;
+
+          // Redirect to the Paymob checkout page
+          window.location.href = checkoutUrl;
         },
         error: (error) => {
           console.error('Error adding booking:', error);
           alert('Failed to add booking.');
         },
       });
-
     } else {
       console.log('Form Invalid:', this.bookingForm.errors);
       alert('Please fill all required fields correctly.');
     }
   }
+
+
+
 }

@@ -107,6 +107,7 @@ export class CardreviewComponent implements OnInit {
           // Optionally update local review list
           this.reviews.push(response.review);
           this.fetchUsersData([response.review]);  // Fetch user data for the new review
+          this.calculateAverageRating();
         },
         error: (error) => {
           console.error('Error submitting review:', error);
