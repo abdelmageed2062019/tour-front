@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class NileServiceService {
-  private apiUrl = 'http://localhost:5000/api/nile';
+     private apiUrl = `${ environment.apiUrl}/nile`;
 
   constructor(private http: HttpClient) { }
 

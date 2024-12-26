@@ -79,13 +79,14 @@ h3, .fa-ils {
   background: url(../../../assets/img/banner5.jpg) no-repeat center;
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 100vh;
 }
 
 .layer {
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* Slider Styles */
@@ -150,8 +151,8 @@ ul {
   flex-direction: column;
   align-items: center;
   background-color: #32364876;
-  padding: 30px;
-  margin-top: 18%;
+  padding: 20px;
+  margin-top: 0px;
 }
 
 .form-style-w3layout {
@@ -169,7 +170,7 @@ ul {
 }
 
 .btn {
-  padding: 10px 205px;
+  padding: 10px 50px;
   background-color: #f4b200;
   color: white;
   border: none;
@@ -253,23 +254,45 @@ h5 {
   .btn {
     padding: 10px;
   }
-}
 
-@media (max-width: 330px) {
+  .container-fluid {
+    font-size: 35px !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+  }
+
+  .form-style-w3layout {
+    flex-direction: column;
+    gap: 15px;
+  }
+
   .form-style-w3layout input {
+    width: 100%;
     padding: 15px;
   }
 
   .csslider > ul {
-    height: 25vh !important;
+    width: 100% !important;
+    height: 30vh !important;
   }
 
   .banner-text-w3ls {
-    padding: 15vw 0 5vw;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 5vw 0;
   }
 
-  .w3ls_banner_txt{
-    font-size: 15px;
+  .navigation {
+    padding-left: 0;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .csslider > .navigation label {
+    width: 12px;
+    height: 6px;
   }
 }
 

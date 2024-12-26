@@ -33,6 +33,13 @@
   background-color: #f0f0f0; /* Fallback background */
 }
 
+.View {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 130px;
+}
+
 /* Button styles */
 .places__view-btn {
   display: inline-flex;
@@ -40,9 +47,8 @@
   padding: 10px 15px;
   font-size: 14px;
   font-weight: 600;
-  margin-top: 10px;
   color: #fff;
-  background-color: #ffca39; /* Green background */
+  background-color: #ffa339; /* Green background */
   border: none;
   border-radius: 5px;
   cursor: pointer;

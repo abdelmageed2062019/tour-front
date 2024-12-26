@@ -5,6 +5,8 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { BookingService } from '../../All_services/booking_services/Booking.service';
 import { TourService } from '../../All_services/tour_services/tour.service';
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-booking',
   standalone: true,
@@ -17,13 +19,15 @@ export class BookingComponent implements OnInit {
   tourId: string | null = null;
   tourDetails: any;
   totalPrice = 0;
+  private publicKey = environment.publicKey;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private bookingService: BookingService,
-    private tourService: TourService
+    private tourService: TourService,
+
   ) {
     // Initialize the booking form.
     this.bookingForm = this.fb.group({
@@ -118,12 +122,10 @@ export class BookingComponent implements OnInit {
       this.bookingService.createBooking(bookingData).subscribe({
         next: (response: any) => {
           console.log('Booking added successfully:', response);
-
-          const publicKey = 'egy_pk_test_wW7qTgkaesFZ15XLUL0Mdr1lSXO590fR'; // Replace with your actual public key
           const clientSecret = response.client_secret; // Ensure this comes from your backend response
 
           // Build the Paymob checkout URL
-          const checkoutUrl = `https://accept.paymob.com/unifiedcheckout/?publicKey=${publicKey}&clientSecret=${clientSecret}`;
+          const checkoutUrl = `https://accept.paymob.com/unifiedcheckout/?publicKey=${this.publicKey}&clientSecret=${clientSecret}`;
 
           // Redirect to the Paymob checkout page
           window.location.href = checkoutUrl;
@@ -134,11 +136,10 @@ export class BookingComponent implements OnInit {
         },
       });
     } else {
-      console.log('Form Invalid:', this.bookingForm.errors);
+      this.bookingForm.markAllAsTouched();
+      // console.log('Form Invalid:', this.bookingForm.errors);
       alert('Please fill all required fields correctly.');
     }
   }
-
-
 
 }

@@ -23,7 +23,7 @@ export class CardDescripComponent {
   @Input() descriptions: string = '';
   @Input() duration: string = '';
   @Input() type: string = '';
-  @Input() video: string = '';
+  @Input() image: string = '';
   @Input() id: string = '';
   isPopupOpen: boolean = false;
 

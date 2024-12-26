@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../../componants/header/header.component';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
@@ -26,7 +26,9 @@ export class BannerComponent{
   }
 
   getPrice(index: number): string {
-    const prices = ['70', '90', '500', '495', '700', '200', '390', '390', '450'];
+    const prices = [
+      '70', '90', '350', '360', '600',
+     '250', '275', '350', '350'];
     return prices[index] || 'Price';
   }
 }

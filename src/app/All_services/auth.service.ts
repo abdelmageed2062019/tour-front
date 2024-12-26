@@ -3,11 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { environment } from './../../environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = `${ environment.apiUrl}`;
+
   private currentUserSubject = new BehaviorSubject<any>(
     JSON.parse(localStorage.getItem('currentUser') || '{}')
   );
@@ -55,3 +58,4 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 }
+

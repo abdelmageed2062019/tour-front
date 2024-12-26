@@ -54,12 +54,8 @@
       </div>
 
       <div class="placesDetails__video">
-        <h4>Gallery & Videos</h4>
-        <div class="placesDetails__video__pop" (click)="openPopup()">
-          <a class="play-btn">
-            <i class="fa fa-play"></i>
-          </a>
-        </div>
+        <h4>Image</h4>
+        <img [src]="image" alt="tour" class="w-50"/>
       </div>
 
       <div class="placesDetails__desc">
@@ -112,15 +108,6 @@
         <p>
           {{fullDay}}
         </p><span class="color">Note:</span> {{note}}
-      </div>
-
-      <!-- Popup video -->
-      <div class="video-popup" [ngClass]="{'show': isPopupOpen}">
-        <div class="video-popup__content">
-          <span class="video-popup__close" (click)="closePopup()">&times;</span>
-          <video width="100%" [src]="video" autoplay controls>
-          </video>
-        </div>
       </div>
     </div>
   </div>

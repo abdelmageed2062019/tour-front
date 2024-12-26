@@ -49,7 +49,7 @@ body {
 }
 
 .price-box {
-  background-color: #69c6ba;
+  background-color:#661d00;
   background-image:url(../../../assets/img/button-curve.png);
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -66,23 +66,23 @@ body {
 }
 
 .price-box:hover {
-  background-color: #57b8a5;
+  background-color: #661d00;
   transform: scale(1.05);
 }
 
 .price {
-  color: white;
+  color:#feaf60;
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .read-more {
-  color: white;
+  color:#feaf60;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   margin: 0;
-  padding-left: 15px;
+  padding-left: 30px;
 }
 
 @media (max-width: 992px) {

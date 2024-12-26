@@ -3,7 +3,7 @@
     <!-- Logo Section -->
     <div class="row">
       <div class="col-12 text-center mb-4">
-        <a href="/home">
+        <a [routerLink]="['/home']">
           <img src="assets/img/Logo-Whie.png" alt="Logo" style="width: 250px; height: auto;">
         </a>
       </div>
@@ -15,12 +15,12 @@
       <div class="col-md-4 text-start text-md-left mb-4">
         <h5>Quick Links</h5>
         <ul class="list-unstyled">
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="/home" class="text-light"> Home</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="/home#about" class="text-light"> About us</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="/home#services" class="text-light"> Services</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="/places" class="text-light"> Tours</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="/gallery" class="text-light"> Gallery</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="/home#contact" class="text-light"> Contact</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/home']" class="text-light"> Home</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/home']" class="text-light"> About us</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/home']"class="text-light"> Services</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/places']"class="text-light"> Tours</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/gallery']"class="text-light"> Gallery</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/home']" class="text-light"> Contact</a></li>
         </ul>
       </div>
 
@@ -28,15 +28,15 @@
       <div class="col-md-4 text-start text-md-left mb-4">
         <h5>Our Tours</h5>
         <ul class="list-unstyled">
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="/cairo" class="text-light"> Cairo</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="#" class="text-light"> Siwa</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="#" class="text-light"> Luxor</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="#" class="text-light"> Aswan</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="#" class="text-light"> Fayoum</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="/details" class="text-light"> Alexandria</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="#" class="text-light"> Hurghada</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="#" class="text-light"> Sharm El-Sheikh</a></li>
-          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a href="#" class="text-light"> Bahariya Oasis</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/details', '676b2716b150112a89272527']" class="text-light"> Cairo</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/details', '676b2d5db150112a8927282b']" class="text-light"> Siwa</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/details', '676b29b9b150112a8927260a']" class="text-light"> Luxor</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/details', '676b256ab150112a892724c6']" class="text-light"> Aswan</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/details', '676b28b1b150112a89272592']" class="text-light"> Fayoum</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/details', '676b2480b150112a892724a6']" class="text-light"> Alexandria</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/details', '676b2371b150112a89272487']" class="text-light"> Hurghada</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/details', '676b2c8ab150112a8927279f']" class="text-light"> Sharm El-Sheikh</a></li>
+          <li><span class="fa fa-angle-double-right" aria-hidden="true"></span><a [routerLink]="['/details', '676b265bb150112a892724f2']" class="text-light"> Bahariya Oasis</a></li>
         </ul>
       </div>
 
@@ -45,7 +45,7 @@
         <h5>Contact Us</h5>
         <p>
           <i class="fas fa-envelope"></i> Email:
-          <a href="mailto:info&#64;yaro-travel.com">info&#64;yaro-travel.com</a>
+          <a href="mailto:admin&#64;yarotravel.com">admin&#64;yarotravel.com</a>
         </p>
         <p>
           <i class="fas fa-phone-alt"></i> Phone:
@@ -54,8 +54,8 @@
         </p>
         <p>
           <i class="fas fa-map-marker-alt"></i> Address:
-          <a href="https://www.google.com/maps?q=Downtown,+Qasr+El+Nil+Street,+Cosmopolitan+Hotel,+Cairo,+Egypt" target="_blank">
-            Downtown, Qasr El Nil Street, Cosmopolitan Hotel, Cairo, Egypt
+          <a href="https://maps.app.goo.gl/T451Vob7zVnHN2Aw7" target="_blank">
+            Steigenberger Cairo Pyramids Hotel,Cairo-Alexandria Desert Road, Kafr Nassar, Pyramids, Giza 3515011
           </a>
         </p>
       </div>

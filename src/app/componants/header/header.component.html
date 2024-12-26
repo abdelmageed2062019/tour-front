@@ -29,7 +29,7 @@
     <nav class="d-flex align-items-center justify-content-between py-3">
       <div id="logo">
         <a routerLink="/home">
-          <img src="assets/img/Logo-Whie.png" alt="header-logo">
+          <img src="assets/img/Logo-Whie.png"alt="header-logo"/>
         </a>
       </div>
 
@@ -41,12 +41,6 @@
         <li [ngClass]="{'active': currentPage === 'home'}">
           <a routerLink="/home" (click)="setActivePage('home')">Home</a>
         </li>
-        <li [ngClass]="{'active': currentPage === 'about'}">
-          <a routerLink='/home' fragment="about" (click)="setActivePage('about')">About Us</a>
-        </li>
-        <li [ngClass]="{'active': currentPage === 'services'}">
-          <a routerLink='/home' fragment="services" (click)="setActivePage('services')">Services</a>
-        </li>
         <li class="dropdown" [ngClass]="{'active': currentPage === 'tours'}">
           <a routerLink="/places" (click)="setActivePage('tours')">Tours</a>
           <ul class="dropdown-menu">
@@ -56,9 +50,6 @@
         </li>
         <li [ngClass]="{'active': currentPage === 'gallery'}">
           <a routerLink="/gallery" (click)="setActivePage('gallery')">Gallery</a>
-        </li>
-        <li [ngClass]="{'active': currentPage === 'contact'}">
-          <a routerLink='/home' fragment="contact" (click)="setActivePage('contact')">Contact</a>
         </li>
       </ul>
     </nav>

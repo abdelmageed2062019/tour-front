@@ -4,6 +4,7 @@ import { HeaderbookingComponent } from "../../componants/headerbooking/headerboo
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BookingService } from '../../All_services/booking_services/Booking.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-booking-vip',
@@ -18,6 +19,7 @@ export class BookingVipComponent implements OnInit {
   isLoading = false;
   tourTitle: string = '';
   tourPrice: number = 0;
+  private publicKey = environment.publicKey;
 
   constructor(
     private fb: FormBuilder,
@@ -74,8 +76,16 @@ export class BookingVipComponent implements OnInit {
       console.log('Booking Data:', bookingData); // Log booking data
 
       this.bookingService.createBooking(bookingData).subscribe({
-        next: () => {
-          console.log('Booking successful'); // Log success
+        next: (response) => {
+          console.log('Booking added successfully:', response);
+
+          const clientSecret = response.client_secret; // Ensure this comes from your backend response
+
+          // Build the Paymob checkout URL
+          const checkoutUrl = `https://accept.paymob.com/unifiedcheckout/?publicKey=${this.publicKey}&clientSecret=${clientSecret}`;
+
+          // Redirect to the Paymob checkout page
+          window.location.href = checkoutUrl;
           this.bookingForm.reset(); // Reset the form after successful booking
           this.totalPrice = 0; // Reset total price
         },

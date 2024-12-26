@@ -7,6 +7,10 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: "Arial", sans-serif;
 }
+form .form-group small {
+  color: red;
+  font-size: 0.9em;
+}
 
 h1 {
   text-align: center;

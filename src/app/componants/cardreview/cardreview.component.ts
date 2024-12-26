@@ -81,7 +81,7 @@ export class CardreviewComponent implements OnInit {
       console.log(review);
 
       if (!this.usersCache[review.userId]) {
-        this.usersService.getUserById(review.user._id).subscribe((userData) => {
+        this.usersService.getUserById(review.user?._id).subscribe((userData) => {
           this.usersCache[review.userId] = userData;  // Cache user data
         });
       }

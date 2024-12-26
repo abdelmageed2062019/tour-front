@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../All_services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -28,6 +30,12 @@ export class LoginComponent {
     });
   }
 
+  // Toggle password visibility
+  togglePasswordVisibility(): void {
+    this.passwordVisible = !this.passwordVisible;
+  }
+
+  // Form submission logic
   onSubmit(): void {
     if (this.loginForm.valid) {
       this.isLoading = true;
@@ -37,19 +45,25 @@ export class LoginComponent {
 
       this.authService.login(email, password).subscribe({
         next: () => {
-          console.log('Login successful');
+          this.toastr.success('Login successful!', 'Success');
           this.router.navigate(['/home']);
         },
         error: (err) => {
-          this.loginError = 'Login failed. Please try again.';
-          console.error('Login failed', err);
+          this.toastr.error('Login failed! Check your credentials and try again.', 'Error');
+          console.error('Login failed:', err);
+          this.loginError = 'Invalid credentials. Please try again.';
         },
         complete: () => {
           this.isLoading = false;
         },
       });
     } else {
-      this.loginError = 'Please fill out the form correctly.';
+      this.toastr.warning('Please fill in all required fields correctly.', 'Warning');
     }
+  }
+
+  // Getter for form controls for easier access in the template
+  get f() {
+    return this.loginForm.controls;
   }
 }
