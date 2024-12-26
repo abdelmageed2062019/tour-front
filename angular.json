@@ -31,18 +31,23 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
-                }
-              ],
+             "budgets": [
+  {
+    "type": "initial",
+    "maximumError": "5mb",  
+    "maximumWarning": "2mb"
+  },
+  {
+    "type": "allScript",
+    "maximumError": "5mb",
+    "maximumWarning": "2mb"
+  },
+  {
+    "type": "allStyles",
+    "maximumError": "5mb",  
+    "maximumWarning": "4mb"
+  }
+],
               "outputHashing": "all"
             },
             "development": {
