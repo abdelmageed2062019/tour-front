@@ -24,12 +24,8 @@ export class HeaderComponent implements OnInit {
 
     // Subscribe to currentUser observable to update login/logout state
     this.authService.currentUser.subscribe((user) => {
-      console.log("Is logged in", user);
-
       this.isLoggedIn = !!user;
     });
-
-
   }
 
   toggleMenu() {
