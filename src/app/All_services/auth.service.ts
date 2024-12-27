@@ -9,10 +9,12 @@ import { environment } from './../../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = `${ environment.apiUrl}`;
+  private apiUrl = `${environment.apiUrl}`;
 
   private currentUserSubject = new BehaviorSubject<any>(
-    JSON.parse(localStorage.getItem('currentUser') || '{}')
+    localStorage.getItem('currentUser') !== null
+      ? JSON.parse(localStorage.getItem('currentUser')!)
+      : null
   );
   public currentUser = this.currentUserSubject.asObservable();
 
@@ -58,4 +60,3 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 }
-
