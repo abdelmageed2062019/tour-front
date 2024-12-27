@@ -12,13 +12,13 @@ export class AuthService {
   private apiUrl = `${environment.apiUrl}`;
 
   private currentUserSubject = new BehaviorSubject<any>(
-    localStorage.getItem('currentUser') !== null
+    localStorage.getItem('currentUser')
       ? JSON.parse(localStorage.getItem('currentUser')!)
       : null
   );
   public currentUser = this.currentUserSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   getToken(): string | null {
     return localStorage.getItem('authToken');
@@ -58,5 +58,10 @@ export class AuthService {
 
   get currentUserValue(): any {
     return this.currentUserSubject.value;
+  }
+
+  isLoggedIn(): boolean {
+    const currentUser = this.currentUserSubject.value;
+    return currentUser && currentUser.token ? true : false;
   }
 }
